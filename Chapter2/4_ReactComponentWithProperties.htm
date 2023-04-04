@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+   <head> 
+      <meta charset="UTF-8" /> 
+      <title>React based application</title> 
+   </head>
+   <body> 
+      <div id="react-app"></div> 
+      <script src="https://unpkg.com/react@17/umd/react.development.js" 
+crossorigin></script> 
+      <script 
+src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" 
+crossorigin></script> 
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+      <script type="text/babel"> 
+         class PropComponent extends React.Component {
+            render () {
+               return (
+                  <div> 
+                     <p>{this.props.textdisplay} </p>
+                     <button type={this.props.bttype}> {this.props.children} </button>
+                  </div>
+               )
+            }
+         }
+         ReactDOM.render(<PropComponent bttype="submit" textdisplay="Creating a button"> Submit Button</PropComponent>,
+         document.querySelector("#div1"))
+      </script> 
+
+      <div id="div1"></div>
+   </body> 
+</html>
