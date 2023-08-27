@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Background Color on Click</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    const box = document.getElementById('box');
+    const colors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+    let colorIndex = 0;
+
+    box.addEventListener('click', () => {
+      box.style.backgroundColor = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+    });
+  </script>
+</body>
+</html>
