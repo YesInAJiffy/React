@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React based application</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function Square({ value }) {
+        return <button className="square">{value}</button>;
+      }
+
+      function Board() {
+        return (
+          <>
+            <div className="status">{status}</div>
+            <div className="board-row">
+              <Square value={0} />
+              <Square value={1} />
+              <Square value={2} />
+            </div>
+            <div className="board-row">
+              <Square value={3} />
+              <Square value={4} />
+              <Square value={5} />
+            </div>
+            <div className="board-row">
+              <Square value={6} />
+              <Square value={7} />
+              <Square value={8} />
+            </div>
+          </>
+        );
+      }
+
+      ReactDOM.render(<Board />, document.querySelector("#root"));
+    </script>
+  </body>
+</html>
