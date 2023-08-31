@@ -1,0 +1,11 @@
+.compDiv {
+    background-color: yellow;
+    padding: 20px;
+    border: 1px solid darkblue;
+  }
+
+  .mycomp {
+    background-color: lightgreen;
+    padding: 20px;
+    border: 1px solid darkblue;
+  }
