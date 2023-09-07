@@ -6,7 +6,7 @@
 
 Goto the local directory, where you have clone the repository
 
-### `npx http-server .`
+### npx http-server .
 
 Use the below to run the http server for hosting the html file.
 npx http-server .
