@@ -14,6 +14,7 @@ npx http-server .
 ### `Redux Dev tools installation`
 
 https://github.com/reduxjs/redux-devtools
+
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 
 
