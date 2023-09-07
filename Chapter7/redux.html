@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <!-- 
+      1. INCLUDE THE REDUX JS
+    -->
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+  </head>
+  <body>
+    <script>
+      // 2. CREATE ACTIONS
+      // NOTE:
+      // In Redux, actions are plain JavaScript objects that represent an intention or an event that describes a change to the application's state. Actions are used to convey information from your application to the Redux store. They provide a structured and predictable way to describe what should happen in your application, typically in response to user interactions or other events.
+
+      // In Redux, a "type" refers to a string or symbol that
+      // is used to describe the nature or purpose of an action.
+      // It's a convention used to specify what kind of action is
+      // being performed within your application. The type property
+      // is a required field in a Redux action object, and it is used
+      // to determine how the state should be updated when the action
+      // is dispatched.
+      function addColor(selectedColor) {
+        return {
+          type: "ADDCOLOR",
+          color: selectedColor,
+        };
+      }
+      function removeColor(selectedColor) {
+        return {
+          type: "REMOVECOLOR",
+          color: selectedColor,
+        };
+      }
+      
+
+      // 3. CREATE REDUCER
+      // NOTE:
+      // In Redux, a reducer is a pure function that specifies how the state of an application should change in response to actions. Reducers play a central role in managing the state of a Redux application. They are responsible for taking the current state and an action as input and returning a new state that reflects the desired changes based on the action type.
+      function favoriteColors(state, action) {
+        if (state === undefined) {
+          state = [];
+        }
+        if (action.type === "ADDCOLOR") {
+          return state.concat(action.color);
+        } else if (action.type === "REMOVECOLOR") {
+          return state.filter((item) => {
+            return item !== action.color;
+          });
+        } else {
+          return state;
+        }
+      }
+
+      // 4. CREATE STORE
+      // NOTE:
+      // In Redux, the "store" is a fundamental concept and a central component responsible for managing the state of your application. The store holds the entire application state as a single JavaScript object tree. Redux follows a predictable state container pattern, and the store plays a crucial role in maintaining this pattern.
+
+      //const store = Redux.createStore(favoriteColors);
+
+      // NOTE: ENABLE THE BELOW FOR REDUX DEVTOOLS
+      const store = Redux.createStore(
+        favoriteColors,
+        // Enable Redux DevTools Extension
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+
+      // 5. SUBSCRIBE TO STORE
+      // NOTE:
+      // In Redux, "subscribing to the store" means registering a callback function that will be called whenever the state in the Redux store changes. Subscriptions allow you to listen for changes to the application state and react to those changes in your application. This mechanism is a key part of Redux, as it enables components to stay in sync with the state and update their views when needed.
+      store.subscribe(render);
+      function render() {
+        console.log(store.getState());
+        var arr = store.getState();
+        var arrlength = arr.length;
+        if (arrlength < 0) {
+          return;
+        }
+        if (document.readyState !== "complete") {
+          return;
+        }
+        var element = document.getElementById("myDiv");
+        element.style.backgroundColor = arr[arrlength - 1];
+      }
+
+      // 6. STORE STATE 
+      console.log("ADD Color", "blue");
+      store.dispatch(addColor("blue"));
+      console.log(store.getState());
+
+      console.log("ADD Color", "green");
+      store.dispatch(addColor("green"));
+      console.log(store.getState());
+
+      console.log("REMOVE Color", "blue");
+      store.dispatch(removeColor("blue"));
+      console.log(store.getState());
+
+      console.log("ADD Color", "yellow");
+      store.dispatch(addColor("yellow"));
+      console.log(store.getState());
+
+      console.log("ADD Color", "white");
+      store.dispatch(addColor("white"));
+      console.log(store.getState());
+
+      console.log("ADD Color", "black");
+      store.dispatch(addColor("black"));
+      console.log(store.getState());
+
+      console.log("REMOVE Color", "blue");
+      store.dispatch(removeColor("blue"));
+      console.log(store.getState());
+      // NOTE:
+      // In Redux, store.dispatch is a method that you use to dispatch (or send) actions to the Redux store. It's a fundamental part of Redux and is how you trigger state changes in your application. When you call store.dispatch(action), you are signaling to Redux that you want to make a change to the application's state based on the provided action.
+
+    </script>
+
+    <h2>Change Background Color of Div in JavaScript</h2>
+    <div id="myDiv" style="border: 1px solid">
+      <p>Hope you liked the simple Redux Demo.</p>
+      <span>Play with colors.</span>
+    </div>
+    <br />
+  </body>
+</html>
