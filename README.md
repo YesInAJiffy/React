@@ -1,7 +1,7 @@
 # React
 React, step by step guide.
 
-## Download a specific Chapter
+## Download a specific Chapter (and start the project)
 1. Go to the specific Chapter
 2. Copy the path of that folder for example the below could be one copied path.
    https://github.com/YesInAJiffy/React/tree/main/Chapter5/tic-tac-toe
