@@ -7,6 +7,6 @@ React, step by step guide.
    https://github.com/YesInAJiffy/React/tree/main/Chapter5/tic-tac-toe
 4. Goto the below URL put the path and press enter.
    https://download-directory.github.io/
-6. The folder shall be zipped and downloaded to your downloads.
+6. The folder shall be zipped and downloaded to your downloads folder.
     
    
